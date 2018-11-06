@@ -1,0 +1,10 @@
+body{
+    background-image: url(img/lost-places-pforphoto-leave-factory-158229.jpeg);
+    background-size:cover;
+    background-position:center;
+    color:red;
+}
+
+img{
+    width:30px;
+}
