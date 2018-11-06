@@ -2,9 +2,136 @@ body{
     background-image: url(img/lost-places-pforphoto-leave-factory-158229.jpeg);
     background-size:cover;
     background-position:center;
-    color:red;
+    color: rgb(194, 14, 14);
+    font: 1em;
+    font-family: emilys-candy, sans-serif;
+
+}
+
+.center-modal{
+    text-align:center;
+    color:rgb(196, 21, 21);
+    width:80%;
+    height:60%;
+    margin:auto;
+    background: #ffffff;
+    opacity:0.6;
+    border:1px solid black;
+    border-radius:10px;
+    font-size:1.6em;
+}
+
+.center-modal input{
+    display:block;
+    width:25%;
+    height:30px;
+    background-color:yellow;
+    margin:auto;
+}
+
+.center-modal button{
+    display: block;
+    height:30px;
+    width:25%;
+    margin:auto;
+}
+
+.remove{
+    background-color:rgb(194, 14, 14);
+    border:1px solid black;
+    border-radius:10px;
 }
 
 img{
-    width:30px;
+    width:20px;
+}
+
+img[name='shuriken']{
+    position:absolute;
+    left: 1200px; 
+    top: 670px;
+}
+
+img[name='grenade']{
+    position:absolute;
+    left: 1000px; 
+    top: 500px;
+}
+
+img[name='sword']{
+    position:absolute;
+    left: 900px; 
+    top: 400px;
+}
+
+img[name='bat']{
+    position:absolute;
+    left: 800px; 
+    top: 600px;
+}
+
+img[name='mona-lisa']{
+    position:absolute;
+    left: 300px; 
+    top: 260px;
+}
+
+img[name='pistol']{
+    position:absolute;
+    left: 900px; 
+    top: 200px;
+}
+
+img[name='fairy-wand']{
+    position:absolute;
+    left: 500px; 
+    top: 300px;
+}
+
+img[name='rope']{
+    position:absolute;
+    left: 400px; 
+    top: 68px;
+}
+
+img[name='key']{
+    position:absolute;
+    left: 400px; 
+    top: 660px;
+}
+
+img[name='knife']{
+    position:absolute;
+    left: 1100px; 
+    top: 300px;
+}
+
+img[name='candlestick']{
+    position:absolute;
+    left: 600px; 
+    top: 370px;
+}
+
+img[name='hammer']{
+    position:absolute;
+    left: 800px; 
+    top: 70px;
+}
+
+img[name='bomb']{
+    position:absolute;
+    left: 600px; 
+    top: 200px;
+}
+
+img[name='poison']{
+    position:absolute;
+    left: 400px; 
+    top: 500px;
+}
+
+img[name='telescope']{
+    position:absolute;
+    left: 300px; 
+    top: 570px;
 }
