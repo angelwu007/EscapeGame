@@ -8,6 +8,21 @@ body{
 
 }
 
+.btn-remove{
+    background-color:rgb(194, 14, 14);
+    border: 1px solid black;
+    border-radius:2px;
+    width:16px;
+    text-align:center;
+    font-size:10px;
+    padding:2px;
+    color:white;
+}
+
+.ui-items p {
+    display:inline;
+}
+
 .center-modal{
     text-align:center;
     color:rgb(196, 21, 21);
@@ -19,8 +34,8 @@ body{
     border:1px solid black;
     border-radius:10px;
     font-size:1.6em;
-    /* animation-name:moveInLeft;
-    animation-duration: 4s; */
+    animation-name:moveInLeft;
+    animation-duration: 4s;
 }
 
 .center-modal input{
@@ -29,6 +44,8 @@ body{
     height:30px;
     background-color:yellow;
     margin:auto;
+    font-size:1em;
+    color:red;
 }
 
 .center-modal button{
@@ -36,6 +53,8 @@ body{
     height:30px;
     width:25%;
     margin:auto;
+    font-size:.8em;
+
 }
 
 .remove{
@@ -45,13 +64,18 @@ body{
 }
 
 img{
-    width:40px;
+    width:15px;
+}
+
+img:hover{
+    width:60px;
+    
 }
 
 img[name='shuriken']{
     position:absolute;
     left: 1200px; 
-    top: 670px;
+    top: 570px;
 }
 
 img[name='grenade']{
@@ -74,7 +98,7 @@ img[name='bat']{
 
 img[name='mona-lisa']{
     position:absolute;
-    left: 300px; 
+    left: 700px; 
     top: 260px;
 }
 
@@ -98,8 +122,8 @@ img[name='rope']{
 
 img[name='key']{
     position:absolute;
-    left: 400px; 
-    top: 660px;
+    left: 300px; 
+    top: 160px;
 }
 
 img[name='knife']{
@@ -110,8 +134,8 @@ img[name='knife']{
 
 img[name='candlestick']{
     position:absolute;
-    left: 600px; 
-    top: 370px;
+    left: 620px; 
+    top: 100px;
 }
 
 img[name='hammer']{
