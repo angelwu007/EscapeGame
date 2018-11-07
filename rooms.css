@@ -35,7 +35,7 @@ body{
     border-radius:10px;
     font-size:1.6em;
     animation-name:moveInLeft;
-    animation-duration: 4s;
+    animation-duration: 6s;
 }
 
 .center-modal input{

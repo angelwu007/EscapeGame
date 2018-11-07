@@ -65,6 +65,7 @@ let generateObjects = function (arr) {
 
 
 let checkIfPlayerWon = function(getElement){
+    let copy = [...itemsCollected]
     console.log("======", getElement)
     let correctItemsPickedByPlayer = 0;
 
@@ -84,26 +85,33 @@ let checkIfPlayerWon = function(getElement){
             }
         }
         itemCollectedUI();
-        objectsDisplay();
+        // objectsDisplay();
 
     } 
-    if(itemsCollected.length === 3) {
+
+
+  
+    if(copy.length === 3) {
         console.log("checking if correct items", secretObjects)
-        itemsCollected.forEach(item=>{
+     itemsCollected = copy.filter((item, index)=>{
             console.log("running through for each statemnt",secretObjects, item)
         if (secretObjects.includes(item)){
             console.log(secretObjects);
             correctItemsPickedByPlayer+=1;
-        }
+            return item;
+        } 
         })
         if (correctItemsPickedByPlayer === 3){
             alert('You Won');
         }else{
             alert('You have collected ' +correctItemsPickedByPlayer+ ' correct picks' );
         }
-    }
 
-    
+        
+        setTimeout(() => {
+            objectsDisplay();
+        }, 1);
+    }
 }
 
 //////////////////////////// User Interface/////////////////////////??
@@ -113,9 +121,11 @@ let checkIfPlayerWon = function(getElement){
 let getStartGame = document.querySelector('.start');
 let getModal = document.querySelector('.center-modal')
 getStartGame.addEventListener('click',function(){
+    playerName();
     getModal.remove();
     generateObjects(objects);
-   
+
+
 })
 
 
@@ -144,6 +154,7 @@ let playerName = function(){
 
 
 let objectsDisplay = function () {
+    let userDisplayObject = document.querySelectorAll('.ui-items p')
 
     if ( itemsCollected.length === 1){
         let firstObjectUI = document.querySelector('.ui-items p:first-of-type')
@@ -169,7 +180,7 @@ let userDisplayObject = document.querySelectorAll('.ui-items p')
 for(let i = 0; i < removeItem.length; i++){
     removeItem[i].addEventListener('click',function(){
         userDisplayObject[i].remove();
-        itemsCollected[i].remove();
+        itemsCollected.splice([i],1);
 
     });
 }
@@ -199,3 +210,11 @@ let removeThirdItem = document.querySelector('.interface button:last-of-type');
 //     }
 // }
 
+// let objectsDisplay = function () {
+//     let userDisplayObject = document.querySelectorAll('.ui-items p')
+//     for (let i = 0; i <userDisplayObject.; i++){
+//         if (itemsCollected[i].length >3){
+//             userDisplayObjectlength[i].innerHTML = itemsCollected[i];
+//         }
+//     }
+// }
