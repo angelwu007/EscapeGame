@@ -47,8 +47,9 @@ let playerAnswer,secretAnswer,numItemsCollected,itemsCollect,secretObjects;
 playerAnswer ='';
 secretAnswer = '';
 secretObjects = [];
-numItemsCollected = 0;
+numItemsCollectedByPlayer = 0;
 itemsCollected = [];
+correctItemsPickedByPlayer = 0;
 
 
 
@@ -80,26 +81,26 @@ let checkIfPlayerWon = function(getElement){
 
     if ( itemsCollected.length < 3){ 
         playerAnswer = prompt(getRandomQuestion(questions,"type in a word or number"));
-        if (typeof playerAnswer === "string"){
+        if (typeof playerAnswer === "string"){ 
             playerAnswer = playerAnswer.toLowerCase();
             }
         if ( playerAnswer == secretAnswer){
             getElement.remove();
-            numItemsCollected++; 
+            numItemsCollectedByPlayer++; 
             itemsCollected.push(getElement.name);
             alert('Alright! You have received a ' + getElement.name);      
         }
     } else {
         itemsCollected.forEach(item=>{
         if (secretObjects.includes(item)){
-            console.log(secretObjects)
-            numItemsCollected++;
+            console.log(secretObjects);
+            correctItemsPickedByPlayer++;
         }
         })
-        if (numItemsCollected === 3){
+        if (correctItemsPickedByPlayer === 3){
             alert('You Won');
             }else{
-            alert('You have collected ' +numItemsCollected+ ' correct picks' );
+            alert('You have collected ' +correctItemsPickedByPlayer+ ' correct picks' );
             }
     }
 
@@ -116,6 +117,8 @@ let getStartGame = document.querySelector('.start');
 let getModal = document.querySelector('.center-modal')
 getStartGame.addEventListener('click',function(){
     getModal.remove();
+    generateObjects(objects);
+
 })
 
 let getShuriken = document.querySelector("img[name='shuriken']");

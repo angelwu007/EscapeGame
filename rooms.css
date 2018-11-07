@@ -19,6 +19,8 @@ body{
     border:1px solid black;
     border-radius:10px;
     font-size:1.6em;
+    /* animation-name:moveInLeft;
+    animation-duration: 4s; */
 }
 
 .center-modal input{
@@ -43,7 +45,7 @@ body{
 }
 
 img{
-    width:20px;
+    width:40px;
 }
 
 img[name='shuriken']{
@@ -134,4 +136,21 @@ img[name='telescope']{
     position:absolute;
     left: 300px; 
     top: 570px;
+}
+
+
+@keyframes moveInLeft{
+    0%{
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    80% {
+        transform: translateX(20px);
+    }
+
+    100%{
+        opacity:1; 
+        transform: translateY(0);
+
+    }
 }

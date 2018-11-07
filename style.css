@@ -1,14 +1,19 @@
-.background{
+body{
     background-color:black;
-    background-size: cover;
-    background-position:center;
+    color: rgb(194, 14, 14);
+    font-family: nosifer, fantasy;
+
+}
+
+
+.background{
     max-width: 100%;
     height: auto;
-    color: rgb(194, 14, 14);
     text-align:center;
     padding:50px 0;
-    font-family: nosifer, fantasy;
 }
+
+
 
 .container{
     width: 80%;
@@ -20,6 +25,8 @@
 
 .background > h1{
     font-size: 3.5em;
+    animation-name:moveInLeft;
+    animation-duration: 5s;
 }
 
 .room{
@@ -38,5 +45,20 @@
 
 }
 
+/* @keyframes moveInLeft{
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    80% {
+        transform: translateX(20px);
+    }
+
+    100%{
+        opacity:1; 
+        transform: translateY(0);
+
+    }
+} */
 
 
