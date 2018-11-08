@@ -11,7 +11,19 @@ questions =[
 {question:'Q. When you need me you throw me away, but whe you don\'t need me, you bring me back. What am I ?', answer:'anchor'},
 {question:'Q. I stay in the corner but travel around the world. What am I ?', answer:'stamp'},
 {question: 'Q. What was the largest island in the world before Australia was discovered', answer:'australia'},
-{question: 'Q. What can you hold in your right hand, but not in your left?', answer:'left hand'}
+{question: 'Q. What can you hold in your right hand, but not in your left?', answer:'left hand'},
+{question: 'Q.Many have heard me, but no one has seen me, and i will not speak back until spoken to',answer: 'echo'},
+{question: "Q.I don’t have eyes, ears, nose and tongue, but I can see, smell, hear and taste everything. What am I?",answer: 'brain'},
+{question:"Q. I do not speak, cannot hear or speak anything, but I will always tell the truth. What am I?",answer: 'mirror'},
+{question:"Q. I have no life, but I can die, what am I?", answer:'battery'},
+{question:"Q. What's full of holes but can still hold water?",answer:"sponge"},
+{question:'Q. What do you break before you use it?', answer: 'egg'},
+{question:"Q. Which is the most curious letter?",answer: "y"},
+{question:"Q. What do you call a bear without an ear?",answer: "b"},
+{question:"Q. What kind of cheese is made backwards?", answer: "edam"},
+{question:"Q. What is easy to get into, but hard to get out of?", answer:'trouble'},
+{question:"Q. What does December have that other months don’t have?", answer:'letter D'},
+{question:'Q. Which vehicle is spelled the same forwards and backwards?', answer: 'racecar'}
 ]
 
 const objects = [
@@ -40,7 +52,7 @@ numItemsCollectedByPlayer = 0;
 itemsCollected = [];
 
 
-// Three random objects should be generated everytime a room is selected
+// Three random objects that don't repeat should be generated everytime a room is selected
 let generateObjects = function (arr) {
 
     while(secretObjects.length < 3){
@@ -65,7 +77,6 @@ let generateObjects = function (arr) {
 
 
 let checkIfPlayerWon = function(getElement){
-    let copy = [...itemsCollected]
     console.log("======", getElement)
     let correctItemsPickedByPlayer = 0;
 
@@ -76,6 +87,7 @@ let checkIfPlayerWon = function(getElement){
             }
         if ( playerAnswer == secretAnswer){
             console.log("----------- ", document.getElementsByName(getElement))
+            // document.getElementsByName()[0].hide();
             numItemsCollectedByPlayer++; 
             itemsCollected.push(getElement);
             alert('Alright! You have received a ' + getElement);  
@@ -83,45 +95,45 @@ let checkIfPlayerWon = function(getElement){
             for(index = element.length - 1; index >= 0; index--) {
                 element[index].parentNode.removeChild(element[index]);
             }
+            setTotalItemCollected(); // this set the UI display of total items collected by the player
         }
-        itemCollectedUI();
-        // objectsDisplay();
-
     } 
-
-
-  
-    if(copy.length === 3) {
+    if(itemsCollected.length === 3) {
         console.log("checking if correct items", secretObjects)
-     itemsCollected = copy.filter((item, index)=>{
+        itemsCollected.forEach(item=>{
             console.log("running through for each statemnt",secretObjects, item)
         if (secretObjects.includes(item)){
             console.log(secretObjects);
             correctItemsPickedByPlayer+=1;
-            return item;
-        } 
+        }
         })
         if (correctItemsPickedByPlayer === 3){
-            alert('You Won');
-        }else{
-            alert('You have collected ' +correctItemsPickedByPlayer+ ' correct picks' );
-        }
+            alert('Congratulation! You have escaped');
+            setPlayerWon();
 
-        
-        setTimeout(() => {
-            objectsDisplay();
-        }, 1);
+
+        }else{
+            alert('You have collected ' +correctItemsPickedByPlayer+ ' correct picks');
+            removeIncorrect();
+        }
     }
+
+}
+
+let removeIncorrect = function () {
+    itemsCollected.forEach((item,index)=>{
+        if (!secretObjects.includes(item)){
+            itemsCollected.splice(index,1)
+        }
+    })
 }
 
 //////////////////////////// User Interface/////////////////////////??
 
-
-
 let getStartGame = document.querySelector('.start');
 let getModal = document.querySelector('.center-modal')
 getStartGame.addEventListener('click',function(){
-    playerName();
+    setPlayerName();
     getModal.remove();
     generateObjects(objects);
 
@@ -138,14 +150,14 @@ for(let i = 0; i < images.length; i++) {
 }
 
 
-let itemCollectedUI = function () {
+let setTotalItemCollected = function () {
 
     let ItemCounter = document.querySelector('#item-counter');
     ItemCounter.textContent = numItemsCollectedByPlayer;
 
 }
 
-let playerName = function(){
+let setPlayerName = function(){
     let input = document.querySelector('input[type=text]');
     let userName = document.getElementById('name');
     userName.innerHTML = input.value;
@@ -153,7 +165,7 @@ let playerName = function(){
 
 
 
-let objectsDisplay = function () {
+let setObjectsDisplay = function () {
     let userDisplayObject = document.querySelectorAll('.ui-items p')
 
     if ( itemsCollected.length === 1){
@@ -170,28 +182,20 @@ let objectsDisplay = function () {
 
     }
 
-}
+} 
 
 
+let setPlayerWon = function (){
 
-//class game//
-let removeItem = document.querySelectorAll('.interface button');
-let userDisplayObject = document.querySelectorAll('.ui-items p')
-for(let i = 0; i < removeItem.length; i++){
-    removeItem[i].addEventListener('click',function(){
-        userDisplayObject[i].remove();
-        itemsCollected.splice([i],1);
+let escapeSign = document.getElementById('escape'); // To display a escape Sign when the player wins the game
+escapeSign.style.display = 'block';
 
-    });
 }
 
 
 
 
 
-let removefirstItem = document.querySelector('.interface button:first-of-type');
-let removeSecondItem= document.querySelector('.interface button:nth-of-type(2)');
-let removeThirdItem = document.querySelector('.interface button:last-of-type');
 
 // class Game {
 

@@ -1,12 +1,69 @@
-body{
+.background-lostplace{
     background-image: url(img/lost-places-pforphoto-leave-factory-158229.jpeg);
     background-size:cover;
     background-position:center;
     color: rgb(194, 14, 14);
     font: 1em;
     font-family: emilys-candy, sans-serif;
+    height:100%;
+    padding:10px;
+}
+
+.background-factory{
+    background-image: url(img/abandoned-factory-abandoned-factory-industrial-162495.jpeg);
+    background-size:cover;
+    background-position:center;
+    color: rgb(194, 14, 14);
+    font: 1em;
+    font-family: emilys-candy, sans-serif;
+    height:100%
+}
+
+.background-church{
+    background-image: url(img/monastery-kloster-historic-church-161161.jpeg);
+    background-size:cover;
+    background-position:center;
+    color: rgb(194, 14, 14);
+    font: 1em;
+    font-family: emilys-candy, sans-serif;
+    height:100%
+}
+
+.background-monalisa{
+
+    background-image: url(img/m31.jpg);
+    background-size:cover;
+    background-position:center;
+    color: rgb(194, 14, 14);
+    font: 1em;
+    font-family: emilys-candy, sans-serif;
+    height:100%
+
+
 
 }
+
+.background-alley{
+    background-image: url(img/abandoned-dark-eerie-161446.jpg);
+    background-size:cover;
+    background-position:center;
+    color: rgb(194, 14, 14);
+    font: 1em;
+    font-family: emilys-candy, sans-serif;
+    height:100%
+}
+
+.background-torture{
+    background-image: url(img/pexels-photo-248860.jpeg);
+    background-size:cover;
+    background-position:center;
+    color: rgb(194, 14, 14);
+    font: 1em;
+    font-family: emilys-candy, sans-serif;
+    height:100%
+}
+
+
 
 .btn-remove{
     background-color:rgb(194, 14, 14);
@@ -65,11 +122,19 @@ body{
 
 img{
     width:15px;
+    /* border:2px solid red; */
 }
 
 img:hover{
-    width:60px;
+    width:70px;
     
+}
+
+img[name='escape']{
+    display:none;
+    margin:0 auto;
+    width:350px;
+    position:relative;
 }
 
 img[name='shuriken']{
@@ -99,7 +164,7 @@ img[name='bat']{
 img[name='mona-lisa']{
     position:absolute;
     left: 700px; 
-    top: 260px;
+    top: 100px;
 }
 
 img[name='pistol']{
